@@ -1,0 +1,49 @@
+﻿@model MvcVirtualPets.Models.ListAndEditPets
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    Layout = null;
+    MvcVirtualPets.Models.Pet newPet = new MvcVirtualPets.Models.Pet();
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link href="~/Main.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>Pet List</h1>
+    <p>
+        Here's all your pets.
+    </p>
+    <ol>
+        @foreach (var pet in Model.Pets)
+        {
+            <li><a href="/Pet/Details/@pet.PetId">@pet.Name</a></li>
+        }
+    </ol>
+
+    <form asp-action="Create">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="NewPet.Name" class="control-label"></label>
+            <input asp-for="NewPet.Name" class="form-control" />
+            <span asp-validation-for="NewPet.Name" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="NewPet.Description" class="control-label"></label>
+            <input asp-for="NewPet.Description" class="form-control" />
+            <span asp-validation-for="NewPet.Description" class="text-danger"></span>
+
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Create" class="btn btn-default" />
+        </div>
+    </form>
+
+    <a href="/Pet/Create">Add a new pet</a>
+</body>
+</html>
