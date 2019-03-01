@@ -8,15 +8,14 @@ namespace MvcVirtualPets.Models
 {
     public class ListAndEditPets
     {
-        public int ListAndEditPetsId { get; set; }
         public virtual IEnumerable<Pet> Pets { get; set; }
 
-        [NotMapped]
+        
         public Pet NewPet { get; set; }
 
         public ListAndEditPets()
         {
-            NewPet = new Pet() { ListAndEditPetsId = 1 };
+            NewPet = new Pet();
         }
     }
 }

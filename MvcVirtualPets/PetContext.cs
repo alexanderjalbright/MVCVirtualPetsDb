@@ -10,7 +10,6 @@ namespace MvcVirtualPets
     public class PetContext : DbContext
     {
         public DbSet<Pet> Pets { get; set; }
-        public DbSet<ListAndEditPets> ListAndEdits { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -25,13 +24,11 @@ namespace MvcVirtualPets
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Pet>().HasData(
-                new Pet() { PetId = 1, Name = "Roscoe", Description ="Big dog.", ListAndEditPetsId = 1},
-                new Pet() { PetId = 2, Name = "Biggs", Description = "Really big dog.", ListAndEditPetsId = 1 },
-                new Pet() { PetId = 3, Name = "Bella", Description = "Tiny dog.", ListAndEditPetsId = 1 }
+                new Pet() { PetId = 1, Name = "Roscoe", Description ="Big dog."},
+                new Pet() { PetId = 2, Name = "Biggs", Description = "Really big dog."},
+                new Pet() { PetId = 3, Name = "Bella", Description = "Tiny dog." }
                 );
-            modelBuilder.Entity<ListAndEditPets>().HasData(
-               new ListAndEditPets() { ListAndEditPetsId = 1}
-               );
+            
 
             base.OnModelCreating(modelBuilder);
         }

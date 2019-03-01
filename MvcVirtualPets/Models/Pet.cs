@@ -13,10 +13,6 @@ namespace MvcVirtualPets.Models
         [Display(Name="Pet Name:")]
         public string Name { get; set; }
 
-        public int ListAndEditPetsId { get; set; }
-
-        public virtual ListAndEditPets ListAndEditPets { get; set; }
-
         public string Description { get; set; }
 
 

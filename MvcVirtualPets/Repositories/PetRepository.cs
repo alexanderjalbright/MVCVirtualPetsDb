@@ -14,7 +14,9 @@ namespace MvcVirtualPets.Repositories
 
         public ListAndEditPets GetAll()
         {
-            return db.ListAndEdits.Single();
+            ListAndEditPets model = new ListAndEditPets();
+            model.Pets = db.Pets.ToList();
+            return model;
         }
 
         public Pet GetById(int id)
